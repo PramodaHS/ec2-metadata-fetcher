@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ec2-fetcher
+  labels:
+    app: ec2-fetcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ec2-fetcher
+  template:
+    metadata:
+      labels:
+        app: ec2-fetcher
+    spec:
+      containers:
+        - name: ec2-fetcher
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh"]
+          args: ["-c", "sleep infinity"]

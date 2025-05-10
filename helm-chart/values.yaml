@@ -1,0 +1,4 @@
+image:
+  repository: pramodhs1048/ec2-metadata-fetcher
+  tag: latest
+  pullPolicy: IfNotPresent
