@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ec2-fetcher
-  labels:
-    app: ec2-fetcher
+  name: ec2-metadata-fetcher
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ec2-fetcher
+      app: ec2-metadata-fetcher
   template:
     metadata:
       labels:
-        app: ec2-fetcher
+        app: ec2-metadata-fetcher
     spec:
       containers:
-        - name: ec2-fetcher
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: IfNotPresent
-          command: ["/bin/sh"]
-          args: ["-c", "sleep infinity"]
+      - name: ec2-metadata-fetcher
+        image: pramodhs1048/ec2-metadata-fetcher:latest
+        args: ["v1"]
+        command: ["/bin/sh", "-c", "sleep 3600"]
+        ports:
+        - containerPort: 8000

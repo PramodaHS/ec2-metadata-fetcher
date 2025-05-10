@@ -1,10 +1,11 @@
-from flask import Flask
+# mock_metadata_server.py
+from flask import Flask, request
 
 app = Flask(__name__)
 
 @app.route('/latest/meta-data/instance-id')
 def instance_id():
-    return "i-1234567890abcdef0"
+    return "i-0test123456"
 
 @app.route('/latest/meta-data/instance-type')
 def instance_type():
@@ -14,9 +15,9 @@ def instance_type():
 def az():
     return "us-east-1a"
 
-@app.route('/latest/api/token', methods=['PUT'])
+@app.route('/latest/api/token', methods=["PUT"])
 def token():
-    return "mock-token"
+    return "fake-token"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host="0.0.0.0", port=8000)
