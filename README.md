@@ -49,7 +49,7 @@ Ensure the following tools are installed:
 
 ## Project Structure
 
-
+```bash
 ec2-metadata-fetcher/
 ├── fetch_metadata.py         # Python script for metadata fetching
 ├── mock_metadata_server.py   # Flask-based EC2 metadata mock server
@@ -60,7 +60,7 @@ ec2-metadata-fetcher/
 │   └── templates/
 │       └── deployment.yaml   # K8s deployment manifest
 └── README.md                 # Project documentation
-
+```
 
 ---
 
@@ -78,43 +78,54 @@ ec2-metadata-fetcher/
 ### Run Locally
 
 **Start the mock metadata server:**
-
+```bash
 python mock_metadata_server.py
-
+```
 **Run the fetcher:**
-
+```bash
 python fetch_metadata.py v1
 python fetch_metadata.py v2
-
+```
 ---
 
 ## 📦 Scenario 2: Docker Containerization
 Dockerfile (Alpine + Python)
 **Build the Docker image:**
+```bash
 docker build -t <your-dockerhub-username>/ec2-fetcher .
-
+```
 **Run the container:**
+```bash
 docker run -it <your-dockerhub-username>/ec2-fetcher /bin/sh
-
+```
 **Push to Docker Hub:**
+```bash
 docker push <your-dockerhub-username>/ec2-fetcher
-
+```
 ---
 
-## 📦 Scenario 3: Helm Deployment
+## ✅ Senario 3: Helm Deployment
 Deploy to your local Minikube cluster using Helm.
 
  **Install the Helm chart:**
+ ```bash
 helm --install ec2-fetcher ./helm-chart
+```
 
 **Access the pod:**
+```bash
 kubectl get pods
+```
 
 **Exec into the pod:**
+```bash
 kubectl exec -it <pod-name> -- /bin/sh
+```
 
 **Inside the container, run:**
+```bash
 python fetch_metadata.py v1
+```
 
 ---
 
@@ -136,4 +147,5 @@ Application development (Python script)
 Containerization (Docker)
 Orchestration (Kubernetes/Helm)
 Local testing (Minikube/LocalStack)
+
 The solution aligns with modern DevOps best practices and can be extended for production use.
