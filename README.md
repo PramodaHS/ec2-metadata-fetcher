@@ -96,7 +96,7 @@ docker build -t <your-dockerhub-username>/ec2-fetcher .
 **Run the container:**
 docker run -it <your-dockerhub-username>/ec2-fetcher /bin/sh
 
-**Push to Docker Hub**
+**Push to Docker Hub:**
 docker push <your-dockerhub-username>/ec2-fetcher
 
 ---
