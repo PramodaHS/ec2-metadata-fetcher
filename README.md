@@ -15,7 +15,7 @@ This project is a complete DevOps solution showcasing scripting, containerizatio
 - [📁 Project Structure](#-project-structure)
 - [✅ Scenario 1: Python Metadata Fetcher](#-scenario-1-python-metadata-fetcher)
 - [📦 Scenario 2: Docker Containerization](#-scenario-2-docker-containerization)
-- [📦 Scenario 3: Helm Deployment](#-scenario-3-helm-deployment)
+- [✅ Scenario 3: Helm Deployment](#-scenario-3-helm-deployment)
 - [🧪 Complete Workflow](#-complete-workflow)
 - [ Conclusion](#-Conclusion)
 
