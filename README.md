@@ -17,7 +17,7 @@ This project is a complete DevOps solution showcasing scripting, containerizatio
 - [📦 Scenario 2: Docker Containerization](#-scenario-2-docker-containerization)
 - [📦 Scenario 3: Helm Deployment](#-scenario-3-helm-deployment)
 - [🧪 Complete Workflow](#-complete-workflow)
-- [🧹 Conclusion](#-Conclusion)
+- [ Conclusion](#-Conclusion)
 
 ---
 
@@ -36,9 +36,7 @@ This hands-on project covers:
 ## 🛠 Prerequisites
 
 Ensure the following tools are installed:
-
-```bash
-# Required Tools
+**Required Tools**
 - Docker Desktop
 - Python 3.8+
 - AWS CLI v2
@@ -51,7 +49,7 @@ Ensure the following tools are installed:
 
 ## Project Structure
 
-```bash
+
 ec2-metadata-fetcher/
 ├── fetch_metadata.py         # Python script for metadata fetching
 ├── mock_metadata_server.py   # Flask-based EC2 metadata mock server
@@ -79,76 +77,49 @@ ec2-metadata-fetcher/
 
 ### Run Locally
 
-Start the mock metadata server:
-```bash
+**Start the mock metadata server:**
+
 python mock_metadata_server.py
 
-Run the fetcher:
+**Run the fetcher:**
 
-```bash
-Copy
-Edit
 python fetch_metadata.py v1
 python fetch_metadata.py v2
 
+---
 
 ## 📦 Scenario 2: Docker Containerization
 Dockerfile (Alpine + Python)
-Build the Docker image:
-
-```bash
-Copy
-Edit
+**Build the Docker image:**
 docker build -t <your-dockerhub-username>/ec2-fetcher .
-Run the container:
 
-```bash
-Copy
-Edit
+**Run the container:**
 docker run -it <your-dockerhub-username>/ec2-fetcher /bin/sh
-Push to Docker Hub (optional):
 
-```bash
-Copy
-Edit
+**Push to Docker Hub**
 docker push <your-dockerhub-username>/ec2-fetcher
 
 ---
 
-##📦 Scenario 3: Helm Deployment
+## 📦 Scenario 3: Helm Deployment
 Deploy to your local Minikube cluster using Helm.
 
-### Install the Helm chart:
-
-```bash
-Copy
-Edit
+ **Install the Helm chart:**
 helm --install ec2-fetcher ./helm-chart
-Access the pod:
 
-```bash
-Copy
-Edit
+**Access the pod:**
 kubectl get pods
-Exec into the pod:
 
-```bash
-Copy
-Edit
+**Exec into the pod:**
 kubectl exec -it <pod-name> -- /bin/sh
-Inside the container, run:
 
-```bash
-Copy
-Edit
+**Inside the container, run:**
 python fetch_metadata.py v1
 
 ---
 
-##🧪 Complete Workflow
-text
-Copy
-Edit
+## 🧪 Complete Workflow:
+
 1. Start LocalStack or the mock metadata server to simulate EC2
 2. Run the Python fetcher locally to verify metadata retrieval
 3. Build the Docker image and test the container
@@ -156,16 +127,13 @@ Edit
 5. Deploy the image to Minikube using Helm
 6. Exec into the pod and test the script inside Kubernetes
 
-##Conclusion
+---
+
+## Conclusion:
 
 This project demonstrates a complete DevOps workflow:
-
 Application development (Python script)
-
 Containerization (Docker)
-
 Orchestration (Kubernetes/Helm)
-
 Local testing (Minikube/LocalStack)
-
 The solution aligns with modern DevOps best practices and can be extended for production use.
